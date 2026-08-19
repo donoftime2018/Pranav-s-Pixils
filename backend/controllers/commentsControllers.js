@@ -22,6 +22,10 @@ exports.addComment = async(req, res) => {
         }}, 
         {returnDocument: 'after', upsert: true}
     )
+
+    drawing.populate('author')
+    drawing.populate({path: 'comments.author'})
+    await drawing.save()
     console.log(drawing)
 
     res.status(200).send({updatedDoc: drawing})
