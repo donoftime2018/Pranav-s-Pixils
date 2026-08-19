@@ -23,12 +23,15 @@ exports.create = async(req, res, next)=> {
 
     const drawing = new Drawing({title: title, drawingURL: fileURL.path, author: authorFound._id})
     
+    drawing.populate("author")
+
     if (desc)
     {
         drawing.desc = desc
     }
     await drawing.save()
     console.log(drawing)
+    console.log(drawing.author)
 
     res.status(200).json({drawing: drawing})
     
