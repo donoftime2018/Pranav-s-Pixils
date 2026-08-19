@@ -12,8 +12,17 @@ exports.addComment = async(req, res) => {
     const authorId = author._id
     console.log(author, authorId)
 
-    const drawing = await Drawing.findById({_id: drawingId})
+    const drawing = await Drawing.findByIdAndUpdate(
+        {_id: drawingId}, 
+        {$push: {
+            comments: {
+                text: comment,
+                author: authorId
+            }
+        }}, 
+        {returnDocument: 'after', upsert: true}
+    )
     console.log(drawing)
 
-    // drawing.populate({path: 'comments', populate: {}}).exec()
+    res.status(200).send({updatedDoc: drawing})
 }
