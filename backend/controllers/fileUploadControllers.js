@@ -8,10 +8,10 @@ exports.create = async(req, res, next)=> {
 
     const authorFound = await User.findOne({username: author})
 
-    console.log("Title: ", title)
-    console.log("Author:", author)
-    console.log("Description:", desc)
-    console.log(authorFound._id)
+    // console.log("Title: ", title)
+    // console.log("Author:", author)
+    // console.log("Description:", desc)
+    // console.log(authorFound._id)
 
     if (!imageFile)
     {
@@ -19,7 +19,7 @@ exports.create = async(req, res, next)=> {
     }
 
     const fileURL = imageFile
-    console.log(fileURL.path)
+    // console.log(fileURL.path)
 
     const drawing = new Drawing({title: title, drawingURL: fileURL.path, author: authorFound._id})
     
@@ -28,7 +28,7 @@ exports.create = async(req, res, next)=> {
         drawing.desc = desc
     }
     await drawing.save()
-    console.log(drawing)
+    // console.log(drawing)
 
     res.status(200).json({drawing: drawing})
     

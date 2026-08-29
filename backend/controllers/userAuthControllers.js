@@ -6,11 +6,11 @@ exports.register = async(req, res, next)=> {
     console.log(imageFile)
     const {username, fName, lName, password, email} = req.body
 
-    console.log("Username: ", username)
-    console.log("First Name: ", fName)
-    console.log("Last Name: ", lName)
-    console.log("Password: ", password)
-    console.log("Email: ", email)
+    // console.log("Username: ", username)
+    // console.log("First Name: ", fName)
+    // console.log("Last Name: ", lName)
+    // console.log("Password: ", password)
+    // console.log("Email: ", email)
     
     const fileURL = imageFile
     // console.log(fileURL.path)
@@ -25,10 +25,10 @@ exports.register = async(req, res, next)=> {
 
     if (imageFile)
     {
-        console.log(fileURL.path)
+        // console.log(fileURL.path)
         user.profilePictureURL = fileURL.path
     }
-    console.log(user)
+    // console.log(user)
     await user.save()
 
 

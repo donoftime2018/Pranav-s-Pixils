@@ -7,10 +7,10 @@ function uploadFile(file) {
     cloudinary.uploader.upload(file, (error, result)=>{
       if (error)
       {
-        console.log(error)
+        // console.log(error)
         reject(error)
       } else {
-          console.log(result)
+          // console.log(result)
           return resolve({
             url: result.url,
             id: result.public_id
