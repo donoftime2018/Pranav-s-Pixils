@@ -3,7 +3,7 @@ const User = require('../models/User')
 
 exports.register = async(req, res, next)=> {
     const imageFile = req.file
-    console.log(imageFile)
+    // console.log(imageFile)
     const {username, fName, lName, password, email} = req.body
 
     // console.log("Username: ", username)
