@@ -33,3 +33,7 @@ exports.create = async(req, res, next)=> {
     res.status(200).json({drawing: drawing})
     
 }
+
+exports.create = async(req, res, next)=> {
+    
+}
