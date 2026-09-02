@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
-const fileUploadRoutes = require("./routes/fileUploadRoutes");
+const drawingRoutes = require("./routes/drawingRoutes");
 const userAuthRoutes = require("./routes/userAuthRoutes")
 const cors = require("cors");
 
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/fileUpload", fileUploadRoutes);
+app.use("/fileUpload", drawingRoutes);
 app.use(userAuthRoutes)
 
 const PORT = process.env.PORT;
